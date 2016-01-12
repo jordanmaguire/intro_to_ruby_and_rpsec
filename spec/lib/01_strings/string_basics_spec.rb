@@ -89,4 +89,27 @@ describe StringBasics do
     end
   end
 
+  describe "#gsub_test" do
+    subject { string_basics.gsub_test(original_string, pattern, replace_with) }
+    preamble("Use String#gsub to replace patterns in a given string with another string")
+
+    let(:original_string) { "JORDAN RULES rules" }
+    let(:replace_with)    { "buffalo"}
+
+    describe "can replace a string with another string" do
+      let(:pattern) { "JORDAN" }
+      it { should eq("buffalo RULES rules") }
+    end
+
+    describe "can replace a string with a regex" do
+      let(:pattern) { /RULES/ }
+      it { should eq("JORDAN buffalo rules") }
+    end
+
+    describe "can replace a string with a case insensitive regex" do
+      let(:pattern) { /JORDAN/i }
+      it { should eq("JORDAN buffalo buffalo") }
+    end
+  end
+
 end
