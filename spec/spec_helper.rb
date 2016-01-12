@@ -11,3 +11,10 @@ Bundler.require
 #     a shorthand for `Dir.glob("./lib/**/*.rb") {|filepath| require(filepath)}.
 #
 Dir.glob("./lib/**/*.rb", &method(:require))
+
+# Require all the support for this spec environment
+Dir.glob("./spec/support/**/*.rb", &method(:require))
+
+RSpec.configure do |config|
+  config.extend(PreambleSupport)
+end
