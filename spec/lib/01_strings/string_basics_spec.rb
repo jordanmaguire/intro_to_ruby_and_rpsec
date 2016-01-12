@@ -42,4 +42,26 @@ describe StringBasics do
     end
   end
 
+  describe "#delete_test" do
+    subject { string_basics.delete_test(original_string, characters_to_delete) }
+    preamble("Use String#delete to remove characters from a string")
+
+    let(:original_string) { "JORDAN RULES YO" }
+
+    describe "deletes characters with matching case" do
+      let(:characters_to_delete) { "RULES" }
+      it { should eq("JORDAN  YO") }
+    end
+
+    describe "doesn't delete characters where case differs" do
+      let(:characters_to_delete) { "rules" }
+      it { should eq("JORDAN RULES YO") }
+    end
+
+    describe "deletes all instances of the character" do
+      let(:characters_to_delete) { "O" }
+      it { should eq("JRDAN RULES Y") }
+    end
+  end
+
 end
