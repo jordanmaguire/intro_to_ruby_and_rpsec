@@ -64,4 +64,29 @@ describe StringBasics do
     end
   end
 
+  describe "#empty_test" do
+    subject { string_basics.empty_test(string) }
+    preamble("Use String#empty? to determine whether there are any characters in a string")
+
+    describe "is false if there are alpha characters in the string" do
+      let(:characters_to_delete) { "A" }
+      it { should be_falsey }
+    end
+
+    describe "is false if there are numbers in the string" do
+      let(:characters_to_delete) { "666" }
+      it { should be_falsey }
+    end
+
+    describe "is false if there is just whitespace in the string" do
+      let(:characters_to_delete) { " " }
+      it { should be_falsey }
+    end
+
+    describe "is true if there is nothing in the string" do
+      let(:characters_to_delete) { "" }
+      it { should be_truthy }
+    end
+  end
+
 end
