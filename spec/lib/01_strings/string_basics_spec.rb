@@ -112,4 +112,22 @@ describe StringBasics do
     end
   end
 
+  # TODO
+  # - include?
+  # - index
+  # - ljust
+  # - lstrip
+  # - prepend
+  # - reverse
+  # - rindex
+  # - rjust
+  # - rstrip
+  # - scan
+  # - slice
+  # - split
+  # - squeeze
+  # - strip
+  # - sub
+  # - upcase
+
 end
